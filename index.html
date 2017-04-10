@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Diwanee Horizons</title>
+  <style>
+    main {
+      width: 960px;
+      margin: 0 auto;
+    }
+    p {
+      font-size: 24px;
+    }
+    .el {
+      width: 200px;
+      height: 200px;
+      border: 5px solid black;
+      background-color: gray;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dignissim efficitur enim, id consequat diam dignissim in. Aliquam vel hendrerit nisl. Praesent rutrum enim eu lacus volutpat porttitor. Vestibulum aliquet dui enim, sit amet ultricies libero gravida vitae. Aliquam aliquam fermentum efficitur. Curabitur porttitor purus efficitur rutrum tempus. Curabitur pulvinar, risus ut tristique lobortis, dolor orci sollicitudin justo, ornare fringilla massa nisl laoreet justo. Nunc fringilla porttitor libero sed placerat. In vestibulum ut risus eu rutrum. Sed ac augue dolor.
+    </p>
+    <p>
+      Vestibulum ut enim et nulla maximus viverra. Quisque tincidunt erat ac nisl porta, nec porta metus rutrum. Pellentesque in justo metus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse id blandit purus, ac bibendum purus. Vestibulum et vehicula lectus, eu finibus velit. Nam non ligula finibus, mattis nunc non, euismod magna.
+    </p>
+    <div id="wrap">
+      <div id="el1" class="el">
+      </div>
+    </div>
+    <p>
+      Proin sed lacus suscipit justo vestibulum ultrices vitae vitae magna. Sed blandit, dolor sit amet pretium venenatis, elit turpis finibus enim, dictum imperdiet risus nibh sed purus. Phasellus aliquam, velit et efficitur suscipit, turpis arcu mollis nunc, id malesuada libero orci ac orci. Nunc gravida orci sit amet arcu pharetra, id pretium orci aliquet. Nunc augue augue, elementum id finibus at, bibendum quis ligula. Duis suscipit enim sit amet nisi viverra pretium. Donec pretium commodo facilisis. Aenean ut mauris ante. Phasellus nec diam dui. Quisque fermentum dolor quis iaculis dignissim. Sed quis sem malesuada, dictum risus vitae, ullamcorper risus.
+    </p>
+    <p>
+      Morbi mattis nulla eleifend, pulvinar metus et, mattis arcu. Nunc augue leo, laoreet sed nunc a, lobortis condimentum ipsum. Nam volutpat ipsum commodo vehicula rhoncus. Suspendisse potenti. Fusce iaculis nec lacus vehicula luctus. Donec eu enim sollicitudin, egestas dui quis, aliquam magna. Cras finibus ultrices turpis at aliquam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas euismod libero et ipsum condimentum aliquam. Nam non tincidunt libero, vitae fermentum turpis. Sed ut ultricies ex.
+    </p>
+
+    <div id="wrap">
+      <div id="el2" class="el">
+      </div>
+    </div>
+
+    <p>
+      Quisque nec tempor diam, ac egestas nunc. Aliquam finibus mattis varius. Sed efficitur fringilla velit, et ultricies nisi. Vestibulum dictum nisi id metus vulputate, at interdum neque interdum. Quisque ac condimentum arcu. Mauris malesuada nisi nisl, non feugiat mauris consectetur in. Sed auctor, ex a commodo consequat, elit metus tincidunt neque, a gravida urna est quis elit. Integer fringilla felis vel maximus mollis.
+    </p>
+    <p>
+      Morbi mattis nulla eleifend, pulvinar metus et, mattis arcu. Nunc augue leo, laoreet sed nunc a, lobortis condimentum ipsum. Nam volutpat ipsum commodo vehicula rhoncus. Suspendisse potenti. Fusce iaculis nec lacus vehicula luctus. Donec eu enim sollicitudin, egestas dui quis, aliquam magna. Cras finibus ultrices turpis at aliquam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas euismod libero et ipsum condimentum aliquam. Nam non tincidunt libero, vitae fermentum turpis. Sed ut ultricies ex.
+    </p>
+  </main>
+
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="diwanee-horizons.js"></script>
+
+  <script>
+    $('#el1').on('horizons', function(e, extra){
+      console.log("el1 -----------");
+      console.log(extra);
+    });
+    $('#el2').on('horizons', function(e, extra){
+      console.log("el2 -----------");
+      console.log(extra);
+    });
+  </script>
+
+</body>
+
+</html>

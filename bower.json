@@ -1,0 +1,28 @@
+{
+  "name": "horizons",
+  "authors": [
+    "Aleksandar Veljkovic <aleksandar.veljkovic@diwanee.com>"
+  ],
+  "description": "A jQuery plugin that adds a bindable events for detecting when and how is an element scroled into viewport",
+  "main": "diwanee-horizons.js",
+  "keywords": [
+    "jquery",
+    "inview",
+    "scroll",
+    "viewport",
+    "html",
+    "javascript"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": ">1.8.0"
+  }
+}
