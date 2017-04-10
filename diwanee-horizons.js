@@ -1,7 +1,9 @@
 ;
-/**
-* author Aleksandar Veljkovic
-* @ Diwanee Serbia
+/*
+*
+*
+* author: Diwanee Serbia / Aleksandar Veljkovic
+*
 *
 */
 
@@ -55,8 +57,10 @@
 
   pub.meshures = function($els) {
     var $el = $els.eq(0);
-    var viewportHeight = w.innerHeight;
-    var viewportWidth = w.innerWidth;
+    //var viewportHeight = w.innerHeight;
+    //var viewportWidth = w.innerWidth;
+    var viewportHeight = $(w).height();
+    var viewportWidth = $(w).width();
     var elementHeight = $el.outerHeight(false);
     var elementWidth = $el.outerWidth(false);
     var bcr = $el[0].getBoundingClientRect();
@@ -70,18 +74,23 @@
       rw: bcr.left + elementWidth,
       re: - (bcr.left + elementWidth) + viewportWidth
     };
+    //console.log(JSON.stringify(meshures));
     return meshures;
   };
 
   pub.state = function($els) {
     var $el = $els.eq(0);
     var meshures = pub.meshures($el);
+
+
     var state = {
-      t: (meshures.tn * meshures.ts) > 0,
-      b: (meshures.bn * meshures.bs) > 0,
-      l: (meshures.lw * meshures.le) > 0,
-      r: (meshures.rw * meshures.re) > 0
+      t: (meshures.tn * meshures.ts) >= 0 ? true : (meshures.tn < 0 && meshures.ts > 0) ? "north" : "south",
+      b: (meshures.bn * meshures.bs) >= 0 ? true : (meshures.bn < 0 && meshures.bs > 0) ? "north" : "south",
+      l: (meshures.lw * meshures.le) >= 0 ? true : (meshures.le < 0 && meshures.lw > 0) ? "west" : "east",
+      r: (meshures.rw * meshures.re) >= 0 ? true : (meshures.re < 0 && meshures.rw > 0) ? "west" : "east"
+
     };
+    //console.log(JSON.stringify(state));
     return state;
   };
 
