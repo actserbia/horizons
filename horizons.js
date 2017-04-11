@@ -27,7 +27,7 @@
       }
     },
     remove: function(handleObj){
-      $el = $(this).eq(0); // @toDo forEach
+      var $el = $(this).eq(0); // @toDo forEach
       $.each(pub.elements, function(i, o){
         if (o.$el[0] === $el[0] && o.handleObj.guid === $el.data("horizons").elements[i].handleObj.guid) {
           pub.elements.splice(i, 1);
