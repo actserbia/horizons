@@ -4,7 +4,7 @@
     "Aleksandar Veljkovic <aleksandar.veljkovic@diwanee.com>"
   ],
   "description": "A jQuery plugin that adds a bindable events for detecting when and how is an element scroled into viewport",
-  "main": "diwanee-horizons.js",
+  "main": "horizons.js",
   "keywords": [
     "jquery",
     "inview",
