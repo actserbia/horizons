@@ -7,18 +7,19 @@
 *
 */
 
-(function ($) {
+(function ($, w) {
   var pub = {};
   pub.elements = [];
   pub.timer = null;
-  var w = window;
 
   $.event.special.horizons = {
 
     add: function(handleObj){
       var $el = $(this).eq(0); // @toDo forEach
-      pub.elements.push({handleObj: handleObj, $el: $el, state: null});
-      $el.data('horizons', pub);
+      handleObj.data = handleObj.data || {};
+      var elData = {handleObj: handleObj, $el: $el, state: null};
+      pub.elements.push(elData);
+      $el.data('horizons', elData);
       $el.addClass('horizons');
       if (!pub.timer && pub.elements.length) {
         pub.timer = setInterval(pub.testState, 250);
@@ -55,6 +56,10 @@
     });
   };
 
+  var intParser = function(int){
+    return parseInt('0'+int,10);
+  }
+
   pub.meshures = function($els) {
     var $el = $els.eq(0);
     //var viewportHeight = w.innerHeight;
@@ -64,15 +69,17 @@
     var elementHeight = $el.outerHeight(false);
     var elementWidth = $el.outerWidth(false);
     var bcr = $el[0].getBoundingClientRect();
+    var offset = $el.data('horizons').handleObj.data.offset || {};
+    var margins = (!$el.data('horizons').handleObj.data.margins) ? 0 : 1;
     var meshures = {
-      tn: bcr.top,
-      ts: - bcr.top + viewportHeight,
-      bn: bcr.top + elementHeight,
-      bs: - (bcr.top + elementHeight) + viewportHeight,
-      lw: bcr.left,
-      le: - bcr.left + viewportWidth,
-      rw: bcr.left + elementWidth,
-      re: - (bcr.left + elementWidth) + viewportWidth
+      tn: bcr.top - intParser(offset.t) - (intParser($el.css('margin-top'))*margins),
+      ts: - bcr.top + viewportHeight + intParser(offset.t) + (intParser($el.css('margin-top'))*margins),
+      bn: bcr.top + elementHeight + intParser(offset.b) + (intParser($el.css('margin-bottom'))*margins),
+      bs: - (bcr.top + elementHeight) + viewportHeight - intParser(offset.b) - (intParser($el.css('margin-bottom'))*margins),
+      lw: bcr.left - intParser(offset.l) - (intParser($el.css('margin-left'))*margins),
+      le: - bcr.left + viewportWidth + intParser(offset.l) + (intParser($el.css('margin-left'))*margins),
+      rw: bcr.left + elementWidth + intParser(offset.r) + (intParser($el.css('margin-right'))*margins),
+      re: - (bcr.left + elementWidth) + viewportWidth - intParser(offset.t) - (intParser($el.css('margin-right'))*margins)
     };
     //console.log(JSON.stringify(meshures));
     return meshures;
@@ -96,4 +103,4 @@
 
   window.horizons = pub;
 
-})(jQuery);
+})(jQuery, window);

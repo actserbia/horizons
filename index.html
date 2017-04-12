@@ -18,6 +18,13 @@
       background-color: gray;
       margin: 0 auto;
     }
+    #el2 {
+      margin: 50px;
+    }
+    .wrap {
+      border: 1px solid #ddd;
+    }
+
   </style>
 </head>
 
@@ -29,7 +36,18 @@
     <p>
       Vestibulum ut enim et nulla maximus viverra. Quisque tincidunt erat ac nisl porta, nec porta metus rutrum. Pellentesque in justo metus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse id blandit purus, ac bibendum purus. Vestibulum et vehicula lectus, eu finibus velit. Nam non ligula finibus, mattis nunc non, euismod magna.
     </p>
-    <div id="wrap">
+    <div class="wrap">
+      <div id="el0" class="el">
+      </div>
+    </div>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dignissim efficitur enim, id consequat diam dignissim in. Aliquam vel hendrerit nisl. Praesent rutrum enim eu lacus volutpat porttitor. Vestibulum aliquet dui enim, sit amet ultricies libero gravida vitae. Aliquam aliquam fermentum efficitur. Curabitur porttitor purus efficitur rutrum tempus. Curabitur pulvinar, risus ut tristique lobortis, dolor orci sollicitudin justo, ornare fringilla massa nisl laoreet justo. Nunc fringilla porttitor libero sed placerat. In vestibulum ut risus eu rutrum. Sed ac augue dolor.
+    </p>
+    <p>
+      Vestibulum ut enim et nulla maximus viverra. Quisque tincidunt erat ac nisl porta, nec porta metus rutrum. Pellentesque in justo metus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse id blandit purus, ac bibendum purus. Vestibulum et vehicula lectus, eu finibus velit. Nam non ligula finibus, mattis nunc non, euismod magna.
+    </p>
+    <h2>offset</h2>
+    <div class="wrap">
       <div id="el1" class="el">
       </div>
     </div>
@@ -39,8 +57,8 @@
     <p>
       Morbi mattis nulla eleifend, pulvinar metus et, mattis arcu. Nunc augue leo, laoreet sed nunc a, lobortis condimentum ipsum. Nam volutpat ipsum commodo vehicula rhoncus. Suspendisse potenti. Fusce iaculis nec lacus vehicula luctus. Donec eu enim sollicitudin, egestas dui quis, aliquam magna. Cras finibus ultrices turpis at aliquam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas euismod libero et ipsum condimentum aliquam. Nam non tincidunt libero, vitae fermentum turpis. Sed ut ultricies ex.
     </p>
-
-    <div id="wrap">
+    <h2>margins</h2>
+    <div class="wrap">
       <div id="el2" class="el">
       </div>
     </div>
@@ -57,14 +75,21 @@
   <script src="horizons.js"></script>
 
   <script>
-    $('#el1').on('horizons', function(e, extra){
+    $('#el0').on('horizons', function(e, extra){
+      console.log("el0 -----------");
+      console.log(extra);
+    });
+
+    $('#el1').on('horizons', {offset:{t: 50, r: 50, b: 50,l: 50}}, function(e, extra){
       console.log("el1 -----------");
       console.log(extra);
     });
-    $('#el2').on('horizons', function(e, extra){
+
+    $('#el2').on('horizons', {margins: true}, function(e, extra){
       console.log("el2 -----------");
       console.log(extra);
     });
+
   </script>
 
 </body>
