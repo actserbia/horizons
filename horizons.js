@@ -57,7 +57,7 @@
   };
 
   var intParser = function(int){
-    return parseInt('0'+int,10);
+    return parseInt(int) ? parseInt(int) : 0;
   }
 
   pub.meshures = function($els) {
